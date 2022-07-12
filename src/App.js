@@ -1,11 +1,14 @@
+import styled from '@emotion/styled';
+import React from 'react';
 import './App.css';
+import PropertyCard from './component/Card/PropertyCard';
 
+function App() {
 
- function App() {
   return (
-    <div className="App">
-
-    </div>
+    <Container>
+        <PropertyCard isOwner={false}/>
+    </Container>
   );
 }
 
