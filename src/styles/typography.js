@@ -1,4 +1,4 @@
-const typography = {
+export const typography = {
   headline1: `
     weight: 300;
     size: 96px;
