@@ -1,22 +1,20 @@
 import React from "react";
 import styled from "@emotion/styled";
-import { colors} from "./styles/colors";
-import { typography } from "./styles/typography";
+import { colors } from "../../styles/colors";
+import { typography } from "../../styles/typography";
 
 const buttonSize = {
   small:`
-    width: 145px;
     height: 32px;
   `,
   large:`
-    width: 177px;
     height: 56px;
   `,
 }
 
 const buttonColor = {
   primary: `
-    background-color: ${colors.pink['100']};
+    background-color: ${colors.pink['50']};
     color: ${colors.white};
     border: none;
     &:hover {
@@ -56,10 +54,9 @@ const buttonColor = {
 const StyledButton = styled.button`
   padding: 0.5rem 1rem;
   gap: 0.5rem;
-  width: 161px;
   height: 40px;
   display: flex;
-  gap: 0.25rem;
+  gap: 9px;
   justify-content: center;
   align-items: center;
   ${props => { return buttonColor[props.color] }}
@@ -67,8 +64,8 @@ const StyledButton = styled.button`
   cursor: pointer;
   ${props => { return buttonSize[props.size]} }
   & svg {
-    width: 1rem;
-    height: 1.31rem;
+    width: 20px;
+    height: 20px;
   }
   & p {
     margin: 0;
