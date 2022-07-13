@@ -13,18 +13,18 @@ body {
 	font-family: 'Open Sans', sans-serif;
 }
 
+/* el container está en APP*/
 .contenedor {
 	min-height: 100vh;
 	display: flex;
   flex-direction: column;
   align-items: center;
 	justify-content: center;
-
 }
 
 .formulario {
 	width: 388px;
-  height: 468px;
+  height: 256px;
 	margin-top: 30px;
 	background: #fff;
 	border-radius: 5px;
@@ -35,15 +35,15 @@ body {
 	justify-content: center;
 }
 
-
 .formulario label {
 	display: block;
-	font-weight: 600;
-	font-size: 14px;
+  font-family: "Inter";
+	font-weight: 400;
+	font-size: 10px;
 	margin-bottom: 5px;
 	color: #1f1f1f;
-	letter-spacing: 1.5px;
-	text-transform: uppercase;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
 }
 
 .formulario input,
@@ -59,24 +59,9 @@ body {
 	color: #8E8E8E;
 }
 
-
-.formulario button[type="submit"] {
-	display: block;
-	background: pink;
-	font-weight: 600;
-	font-family: 'Open Sans', sans-serif;
-	border: none;
-	cursor: pointer;
-	width: 200px;
-	padding: 10px;
-	border-radius: 5px;
-	color: #fff;
-	font-size: 16px;
-	transition: .3s ease all;
-}
-
 h1{
   font-family: "Montserrat", "Open-sans";
+  font-style: normal;
   font-size: 1.5rem;
   text-align: center;
   line-height: 2rem;
