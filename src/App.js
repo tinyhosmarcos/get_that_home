@@ -1,12 +1,12 @@
 import React from 'react';
 import './App.css';
-import SignupCard from './pages/signup-card';
+import Signup from './pages/signup';
 
 function App() {
 
   return (
     <div className='contenedor'>
-      <SignupCard/>
+      <Signup/>
     </div>
   )
 }

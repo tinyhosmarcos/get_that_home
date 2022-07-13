@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400&display=swap');
+
+* {
+	padding: 0px;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+body {
+  background: rgb(255,255,255);
+  background: linear-gradient(0deg, rgba(255,255,255,1) 50%, rgba(255,225,240,1) 50%);
+	font-family: 'Open Sans', sans-serif;
+}
+
+/* el container está en APP*/
+.contenedor {
+	min-height: 100vh;
+	display: flex;
+  flex-direction: column;
+  align-items: center;
+	justify-content: center;
+
+}
+
+
+.titles{
+  text-align: center;
+}
+
+.subTitle{
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 200;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  text-align: center;
+}
+
+.bigTitle{
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 3.5rem;
+  line-height: 5rem;
+}
+
+.profilesCards{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 3rem;
+  margin-top: 3rem;
+}
+
+.cards {
+  height: 200px;
+  width: 200px;
+  border-radius: 5px;
+  box-shadow: 1px 2px 3px 4px rgba(12,12,12,0.2);
+}
