@@ -17,14 +17,20 @@ const Signup = () =>{
           <div className="image">
             <ReactRafiki />
           </div>
-          <div>this is a card</div>
+          <div className="cardText">
+            <p className="cardTitle"> Landlord</p>
+            <p className="cardSubtitle"> You want to rent or sell a home </p>
+          </div>
           
         </div>
         <div className="cards"> 
         <div className="image">
         < ReactPana/>
           </div>
-          <div>this is a card</div>
+          <div className="cardtext">
+            <p className="cardTitle"> Home seeker</p>
+            <p className="cardSubtitle"> You want to find a home </p>
+          </div>
           
         </div>
       </div>
