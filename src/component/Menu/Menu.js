@@ -6,11 +6,12 @@ import { shadows } from '../../styles/shadows';
 import { colors } from '../../styles/colors';
 import {ReactComponent as ReactLogo} from '../../styles/logo/Logo.svg'
 
-const Menu = ({user}) => {
+const Menu = () => {
   const MenuContainer = styled.div`
     height: 72px;
     background-color: ${colors.white};
     padding: 0 120px;
+    margin-bottom: 10px;
     display: flex;
     align-items: center;
     ${shadows.shadow1}
@@ -26,6 +27,8 @@ const Menu = ({user}) => {
     gap: 1rem;
     align-items: center;
   `
+
+  const user = null
 
   return (
     <MenuContainer>
