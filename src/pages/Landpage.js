@@ -225,6 +225,7 @@ const Landpage = () => {
       }
     }
   `
+
   return (
     <HomePageContainer>
       <Menu/>

@@ -7,11 +7,11 @@
 	box-sizing: border-box;
 }
 
-body {
+/* body {
   background: rgb(255,255,255);
   background: linear-gradient(0deg, rgba(255,255,255,1) 50%, rgba(255,225,240,1) 50%);
 	font-family: 'Open Sans', sans-serif;
-}
+} */
 
 /* el container está en APP*/
 .contenedor {
@@ -58,6 +58,7 @@ body {
   border-radius: 5px;
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
   background-color: #fff;
+  cursor: pointer;
 }
 
 .image{

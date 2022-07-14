@@ -1,11 +1,13 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
 import * as sessions from "./sessions-services"
 
 const AuthContext = React.createContext()
 
 function AuthProvider(props) {
   const [user, setUser] = React.useState(null);
-  // const navigate = useNavigate()
+  const [profileType, setProfileType] = React.useState({});
+  const navigate = useNavigate()
 
   // React.useEffect(() => {
   //   getUser()
@@ -17,30 +19,36 @@ function AuthProvider(props) {
   // },[])
 
   function login(credentials){
+    console.log(credentials)
     return sessions.login(credentials).then( user => {
       setUser(user)
-      // navigate("/categories")
+      navigate('/')
     })
   }
 
   function logout(){
     return sessions.logout().then(() => {
       setUser(null)
-      // navigate("/login")
+      setProfileType({})
+      navigate('/')
     })
   }
 
-  // function signup(credentials){
-  //   return sessions.signup(credentials).then(user =>{
-  //     setUser(user)
-  //     navigate('/categories')
-  //   })
-  // }
+  function signup(credentials){
+    const newUser = {...credentials, ...profileType}
+    return sessions.signup(newUser).then(user =>{
+      setUser(user)
+      setProfileType({})
+      navigate('/')
+    })
+  }
 
   const value = { 
     user, 
     login,
     logout,
+    setProfileType,
+    signup,
   }
 
   // if(loading) return <p>Loading ...</p>

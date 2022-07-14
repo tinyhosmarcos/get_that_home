@@ -1,15 +1,20 @@
 import React from 'react';
+import { Routes, Route } from 'react-router-dom';
 import './App.css';
-import PropertyCard from './component/Card/PropertyCard';
 import Landpage from './pages/Landpage';
 import Login from './pages/login';
+import Signup from './pages/signup';
+import SignupCard from './pages/signup-card';
 
 function App() {
 
   return (
-    <div className='contenedor'>
-      <Login/>
-    </div>
+    <Routes>
+      <Route path="/" element={<Landpage />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/signup/profile" element={<SignupCard />} />
+      <Route path="/signup/type" element={<Signup />} />
+    </Routes>
   )
 }
 
