@@ -68,7 +68,7 @@ const SignupCard = () =>{
   
   return(
       <>
-      <div className="formulario">
+      <FormContainer>
         <Title>Create your account</Title>
           <Formik
             initialValues={{
@@ -106,7 +106,7 @@ const SignupCard = () =>{
             <Button type="submit">Create Account</Button>
           </Form>
         </Formik>
-      </div>
+      </FormContainer>
     </>
 
   );
