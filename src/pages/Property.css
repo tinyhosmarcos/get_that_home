@@ -1,6 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400&display=swap');
+
+* {
+	padding: 0px;
+	margin: 0;
+	box-sizing: border-box;
+}
+
 input[type=number]::-webkit-inner-spin-button, 
 input[type=number]::-webkit-outer-spin-button { 
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none; 
+}
+
+
+
+.propContainer {
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+	justify-content: center;
+
+}
+
+form {
+	width: 100%;
+    height: 100%;
+	margin-top: 30px;
+	background: #fff;
+	border-radius: 5px;
+	padding: 0px 120px;
+    display: flex;
+    flex-direction: column;
+	align-content: center;
+}
+
+
+form label {
+	display: block;
+	font-weight: 600;
+	font-size: 14px;
+	margin-bottom: 5px;
+	color: #1f1f1f;
+	letter-spacing: 1.5px;
+	text-transform: uppercase;
+}
+
+.formulario input,
+.formulario textarea {
+	font-family: 'Open Sans', sans-serif;
+	width: 356px;
+  height: 40px;
+	border-radius: 5px;
+	border: 1px solid #F48FB1;
+	font-size: 15px;
+	padding: 10px;
+	margin-bottom: 5px;
+	color: #8E8E8E;
+}
+
+
+.formulario button[type="submit"] {
+	display: block;
+	background: pink;
+	font-weight: 600;
+	font-family: 'Open Sans', sans-serif;
+	border: none;
+	cursor: pointer;
+	width: 200px;
+	padding: 10px;
+	border-radius: 5px;
+	color: #fff;
+	font-size: 16px;
+	transition: .3s ease all;
+}
+
+h1{
+  font-family: "Montserrat", "Open-sans";
+  font-size: 1.5rem;
+  text-align: center;
+  line-height: 2rem;
+  font-weight: 300px;
+  margin-bottom: 1rem;
+}
+
+.checkboxes{
+    display: flex;
+    flex-direction: row;
+}
+
+.petcheck{
+    display: flex;
+    flex-direction: row;
+}
+
+.paratext{
+    width: 600px;
+    height: 76px;
+    text-align: start;
+    resize: none;
 }
