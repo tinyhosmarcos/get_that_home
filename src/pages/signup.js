@@ -5,7 +5,7 @@ import { useAuth } from "../context/auth-context";
 import {ReactComponent as ReactPana} from "../styles/logo/pana.svg";
 import {ReactComponent as ReactRafiki} from "../styles/logo/rafiki.svg";
 import styled from "@emotion/styled";
-import "./signup.css"
+// import "./signup.css"
 
 
 
