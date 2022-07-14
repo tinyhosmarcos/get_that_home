@@ -1,16 +1,16 @@
-import styled from '@emotion/styled';
 import React from 'react';
 import './App.css';
 import PropertyCard from './component/Card/PropertyCard';
 import Landpage from './pages/Landpage';
+import Login from './pages/login';
 
 function App() {
 
   return (
-    <>
-        <Landpage/>
-    </>
-  );
+    <div className='contenedor'>
+      <Login/>
+    </div>
+  )
 }
 
 export default App;
