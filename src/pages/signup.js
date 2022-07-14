@@ -21,45 +21,99 @@ const Signup = () =>{
 	justify-content: center;
 `;
 
+const ProfilesContainer = styled.div`
+display: flex;
+flex-direction: row;
+justify-content: center;
+gap: 3rem;
+margin-top: 3rem;
+`;
 
+const Card = styled.div`
+width: 280px;
+height: 274px;
+border-radius: 5px;
+box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+background-color: #fff;
+cursor: pointer;
+`;
+
+const TitleContainer = styled.div`
+text-align: center;
+`;
+const SubTitle = styled.p`
+font-family: 'Montserrat';
+font-style: normal;
+font-weight: 200;
+font-size: 1.5rem;
+line-height: 2rem;
+text-align: center;
+`;
+const BigTitle = styled.p`
+font-family: 'Montserrat';
+font-style: normal;
+font-weight: 300;
+font-size: 3.5rem;
+line-height: 5rem;
+`;
+
+const CardTitle = styled.p`
+  text-align: center;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+`;
+
+const CardSubtitle = styled.p`
+  text-align: center;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 0.87rem;
+  line-height: 1.25rem;
+`;
+
+function CardType({ title, subtitle }) {
+  return (
+        <div>  
+          <CardTitle>{title}</CardTitle>
+          <CardSubtitle>{subtitle}</CardSubtitle>
+        </div>
+  );
+}
 
   return(
     <Container>
       <Menu/>
-        <div className="titles">
-          <p className="subTitle"> Selecciona el perfil con el que te identificas</p>
-          <p className="bigTitle">¿Qué estás buscando?</p>
-        </div>
 
-      <div class="profilesCards">
+        <TitleContainer>
+          <SubTitle> Selecciona el perfil con el que te identificas</SubTitle>
+          <BigTitle>¿Qué estás buscando?</BigTitle>
+        </TitleContainer>
 
-        <div className="cards" onClick={() => { 
+      <ProfilesContainer>
+
+        <Card onClick={() => { 
           navigate('/signup/profile');
           setProfileType({profile_type: 1})
-        }}>
-          <div className="image">
-            <ReactRafiki />
-          </div>
-          <div className="cardLandlord">
-            <p className="cardTitle"> Landlord</p>
-            <p className="cardSubtitle"> You want to rent or sell a home </p>
-          </div>
-        </div>
+          }}>
+          
+          <ReactRafiki padding="1rem 1.5rem 0.5rem 1.5rem;"/>
+          <CardType title="Landlord" subtitle="You want to rent or sell a home" />
+        </Card>
 
-        <div className="cards" onClick={() => { 
+        <Card onClick={() => { 
           navigate('/signup/profile');
           setProfileType({profile_type: 0})
         }}> 
-          <div className="image">
-            < ReactPana/>
-          </div>
-          <div className="cardSeeker">
-            <p className="cardTitle"> Home seeker</p>
-            <p className="cardSubtitle"> You want to find a home </p>
-          </div>
-        </div>
+          <ReactPana padding="1rem 1.5rem 0.5rem 1.5rem;"/>
+          <CardType title="Home seeker" subtitle="You want to find a home" />
 
-      </div>
+        </Card>
+
+      </ProfilesContainer>
     </Container>
   );
 }
