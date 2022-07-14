@@ -5,6 +5,8 @@ import { RiSearchLine, RiUserAddLine, RiUserReceived2Line, RiLogoutCircleLine, R
 import { shadows } from '../../styles/shadows';
 import { colors } from '../../styles/colors';
 import {ReactComponent as ReactLogo} from '../../styles/logo/Logo.svg'
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../../context/auth-context';
 
 const Menu = () => {
   const MenuContainer = styled.div`
@@ -27,8 +29,8 @@ const Menu = () => {
     gap: 1rem;
     align-items: center;
   `
-
-  const user = null
+  const navigate = useNavigate();
+  const { user, logout } = useAuth();
 
   return (
     <MenuContainer>
@@ -41,8 +43,8 @@ const Menu = () => {
           {user ? 
           (
             <>
-              <Button icon={<RiLogoutCircleLine/>} color={'secondary'}>LOGOUT</Button>
-              {user.isLandlord ? 
+              <Button handleClick={ async () => await logout()} icon={<RiLogoutCircleLine/>} color={'secondary'}>LOGOUT</Button>
+              {user.profile_type === 'landlord' ? 
                 <Button icon={<RiHome8Line/>} color={'primary'}>PROPERTIES</Button>
                 : 
                 <Button icon={<RiHeartFill/>} color={'primary'}>SAVED PROPERTIES</Button>
@@ -55,7 +57,7 @@ const Menu = () => {
           (
             <>
               <Button icon={<RiUserAddLine/>} color={'secondary'} style={{width: '101px'}}>JOIN</Button>
-              <Button icon={<RiUserReceived2Line/>} color={'primary'} style={{width: '101px'}}>LOGIN</Button>
+              <Button handleClick={() => navigate('/login')} icon={<RiUserReceived2Line/>} color={'primary'} style={{width: '101px'}}>LOGIN</Button>
             </>
           )}
         </MenuBottons>

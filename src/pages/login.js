@@ -1,35 +1,117 @@
 import React from "react";
 import "./login.css";
-import { Formik } from "formik";
+import { Field, Form, Formik } from "formik";
+import { RiUserReceivedLine } from "react-icons/ri";
+import Button from "../component/Button/Button";
+import { useAuth } from "../context/auth-context";
+import styled from "@emotion/styled";
+import { colors } from "../styles/colors";
+import { shadows } from '../styles/shadows'
+import { typography } from "../styles/typography";
 
 
 const Login= () =>{
-  
-  return(
-      <>
-      <div className="formulario">
-        <h1>Login</h1>
-          <Formik>
-            <form>
-          
-            <div>
-              <label htmlFor="mail">Email</label>
-              <input type="text" id="correo" name="correo" placeholder="user@mail.com" ></input>
-            </div>
-           
-            <div>
-              <label htmlFor="mail">Password</label>
-              <input type="text" id="password" name="password" placeholder="******" ></input>
-            </div>
-            
-          </form>
+  const { login } = useAuth();
 
+  const FieldWrapper = ({ className, ...props }) => (
+    <Field className={className} {...props} />
+  );
+  
+  const CustomField = styled(FieldWrapper)`
+    width: 356px;
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid ${colors.pink['50']};
+    ${typography.body1}
+    padding: 10px;
+    margin-bottom: 5px;
+    &::placeholder {
+      color: ${colors.gray['light']};
+    }
+  `
+  const LoginContainer = styled.div`
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: ${colors.gray['medium']}25;
+  `
+  const FormContainer = styled.div`
+    width: 388px;
+    height: 256px;
+    background: ${colors.white};
+    border-radius: 5px;
+    padding: 16px;
+    ${shadows.shadow1}
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    & h5 {
+      ${typography.headline5}
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    & label {
+      display: block;
+      font-family: "Inter";
+      font-weight: 400;
+      font-size: 10px;
+      margin-bottom: 5px;
+      color: #1f1f1f;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+    & textarea {
+      font-family: 'Open Sans', sans-serif;
+      width: 356px;
+      height: 40px;
+      border-radius: 5px;
+      border: 1px solid #F48FB1;
+      font-size: 15px;
+      padding: 10px;
+      margin-bottom: 5px;
+      color: #8E8E8E;
+    }
+  `
+  const SubmitContainer = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 1rem;
+  `
+  return(
+    <LoginContainer>
+      <FormContainer>
+        <h5>Login</h5>
+          <Formik
+            initialValues={{
+              email: '',
+              password: '',
+            }}
+            onSubmit={ async (values) => {
+              console.log(values)
+              await login(values)
+            }}
+          >
+            <Form>
+            <div>
+              <label htmlFor="email">Email</label>
+              <CustomField type='email' name='email' placeholder='user@mail.com'/>
+            </div>
+            <div>
+              <label htmlFor="password">Password</label>
+              <CustomField type='password' name='password' placeholder='******'/>
+            </div>
+            <SubmitContainer>
+              <Button type="submit" icon={<RiUserReceivedLine/>} color={'primary'}>LOGIN</Button>
+            </SubmitContainer> 
+          </Form>
         </Formik>
-      </div>
-    </>
+      </FormContainer>
+    </LoginContainer>
 
   );
-
 }
 
 export default Login

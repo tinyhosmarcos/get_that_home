@@ -73,9 +73,9 @@ const StyledButton = styled.button`
   }
 `;
 
-function Button ({children, icon, ...props}){
+function Button ({children, handleClick, icon, ...props}){
   return (
-    <StyledButton {...props}>
+    <StyledButton onClick={handleClick} {...props}>
       {icon}
       <p>
         {children}

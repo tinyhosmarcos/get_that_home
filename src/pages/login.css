@@ -1,28 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400&display=swap');
 
-* {
+/* * {
 	padding: 0px;
 	margin: 0;
 	box-sizing: border-box;
-}
+} */
 
-body {
+/* body {
   background: rgb(255,255,255);
   background: linear-gradient(0deg, rgba(255,255,255,1) 50%, rgba(255,225,240,1) 50%);
 	font-family: 'Open Sans', sans-serif;
-}
+} */
 
 /* el container está en APP*/
-.contenedor {
+/* .contenedor {
 	min-height: 100vh;
 	display: flex;
   flex-direction: column;
   align-items: center;
 	justify-content: center;
-}
+} */
 
-.formulario {
+/* .formulario {
 	width: 388px;
   height: 256px;
 	margin-top: 30px;
@@ -33,9 +33,9 @@ body {
   display: flex;
   flex-direction: column;
 	justify-content: center;
-}
+} */
 
-.formulario label {
+/* .formulario label {
 	display: block;
   font-family: "Inter";
 	font-weight: 400;
@@ -44,7 +44,7 @@ body {
 	color: #1f1f1f;
   letter-spacing: 1.5px;
   text-transform: uppercase;
-}
+} */
 
 .formulario input,
 .formulario textarea {

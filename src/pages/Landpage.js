@@ -16,7 +16,6 @@ const Landpage = () => {
   const FormWrapper = ({ className, ...props }) => (
     <Form className={className} {...props} />
   );
-
   const Section1 = styled.div`
     display: flex;
     align-items: center;
@@ -226,6 +225,7 @@ const Landpage = () => {
       }
     }
   `
+
   return (
     <HomePageContainer>
       <Menu/>
