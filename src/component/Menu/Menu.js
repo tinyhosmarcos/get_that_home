@@ -28,7 +28,9 @@ const Menu = () => {
     align-items: center;
   `
 
-  const user = null
+  const user = {
+    isLandlord: true
+  }
 
   return (
     <MenuContainer>
