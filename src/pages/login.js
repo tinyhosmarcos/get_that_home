@@ -13,7 +13,28 @@ import { typography } from "../styles/typography";
 const Login= () =>{
   const { login } = useAuth();
 
-  const FieldWrapper = ({ className, ...props }) => (
+// React --INICIO
+  const [operationType, setOperationType] = React.useState("Rent");
+
+const rentRef = React.useRef();
+const saleRef = React.useRef();
+
+  React.useEffect(() => {
+    if (operationType==="Rent") {
+      rentRef.current.style.backgroundColor= "red";
+      console.log(operationType);
+        }
+    else if(operationType==="Sale"){
+      saleRef.current.style.backgroundColor= "red";
+      console.log(operationType);
+        }
+    },[operationType])
+
+  const handleOperation = (e) =>{
+    setOperationType(e.target.innerHTML);
+  }
+  // React --FIN
+const FieldWrapper = ({ className, ...props }) => (
     <Field className={className} {...props} />
   );
   
@@ -80,6 +101,14 @@ const Login= () =>{
     align-items: center;
     padding-top: 1rem;
   `
+  
+  // React --INICIO
+  const OperationTypeOpt = styled.div`
+  width: 50px;
+  height: 40px;
+`
+// React --INICIO
+
   return(
     <LoginContainer>
       <FormContainer>
@@ -103,6 +132,12 @@ const Login= () =>{
               <label htmlFor="password">Password</label>
               <CustomField type='password' name='password' placeholder='******'/>
             </div>
+
+          {/* React --INICIO */}
+          <OperationTypeOpt ref={rentRef} onClick={handleOperation} children="Rent" >Rent</OperationTypeOpt>
+            <OperationTypeOpt ref={saleRef} onClick={handleOperation} children="Sale" >Sale</OperationTypeOpt>
+          {/* React --FIN */}            
+
             <SubmitContainer>
               <Button type="submit" icon={<RiUserReceivedLine/>} color={'primary'}>LOGIN</Button>
             </SubmitContainer> 
