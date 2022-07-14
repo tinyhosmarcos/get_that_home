@@ -1,15 +1,14 @@
-import styled from '@emotion/styled';
 import React from 'react';
 import './App.css';
-import PropertyCard from './component/Card/PropertyCard';
+import Login from './pages/login';
 
 function App() {
 
   return (
-    <Container>
-        <PropertyCard isOwner={false}/>
-    </Container>
-  );
+    <div className='contenedor'>
+      <Login/>
+    </div>
+  )
 }
 
 export default App;
