@@ -4,21 +4,34 @@ import Menu from "../component/Menu/Menu";
 import { useAuth } from "../context/auth-context";
 import {ReactComponent as ReactPana} from "../styles/logo/pana.svg";
 import {ReactComponent as ReactRafiki} from "../styles/logo/rafiki.svg";
+import styled from "@emotion/styled";
 import "./signup.css"
+
+
 
 const Signup = () =>{
   const navigate = useNavigate();
   const { setProfileType } = useAuth();
 
+  const Container = styled.div`
+	min-height: 100vh;
+	display: flex;
+  flex-direction: column;
+  align-items: center;
+	justify-content: center;
+`;
+
+
+
   return(
-    <div className="container">
+    <Container>
       <Menu/>
         <div className="titles">
           <p className="subTitle"> Selecciona el perfil con el que te identificas</p>
           <p className="bigTitle">¿Qué estás buscando?</p>
         </div>
 
-      <div className="profilesCards">
+      <div class="profilesCards">
 
         <div className="cards" onClick={() => { 
           navigate('/signup/profile');
@@ -47,7 +60,7 @@ const Signup = () =>{
         </div>
 
       </div>
-    </div>
+    </Container>
   );
 }
 
