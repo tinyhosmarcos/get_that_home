@@ -1,4 +1,5 @@
 import React from "react";
+import "./Property.css";
 
 const Listing = () => {
   return(
@@ -10,10 +11,10 @@ const Listing = () => {
           <div className= "firstblock">
             <label htmlFor="address">Address</label>
             <input type="text" id="address" name="address" placeholder="start typing to autocomplete"/>
-            <label htmlFor="name">Montly Rent</label>
-            <input type="currency" id="rent" name="rent" placeholder="2000"/>
-            <label htmlFor="name">Name</label>
-            <input type="text" id="name" name="name" placeholder="John Doe"/>
+            <label htmlFor="rent">Montly Rent</label>
+            <input type="number" min="0.01" step="0.01" max="20000" placeholder="2000" />
+            <label htmlFor="maintanance">Maitanance</label>
+            <input type="number" min="0.01" step="0.01" max="2500" placeholder="2000"  />
           </div>
           <div className="checkboxes">
 
