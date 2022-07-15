@@ -1,5 +1,7 @@
 import { Formik, Form, Field } from 'formik';
 import React from "react";
+import Button from "../component/Button/Button";
+import { RiUploadLine } from "react-icons/ri";
 import "./Property.css";
 
 const ListingRent = () => {
@@ -9,7 +11,6 @@ const ListingRent = () => {
       <Formik
         initialValues= {{
           address: '',
-          currency: '',
           monthlyrent:'',
           maintanance: '',
           appartment: '',
@@ -140,7 +141,7 @@ const ListingRent = () => {
             <h3>Photos</h3>
             <p>Upload as many photos as you wish</p>
               <div className="subphotos">
-              <Button type="submit" icon={<RiUserReceivedLine/>} color={'primary'}>choose</Button>
+              <Button type="submit" icon={<RiUploadLine/>} color={'primary'}>Choose a file</Button>
                 <p className="">No file chosen</p>
                 </div>
               <p>Only images, max 5MB</p>
@@ -149,8 +150,9 @@ const ListingRent = () => {
                   <p className="photoboxtext">No photos yet</p>
                 </div>
               </div>
+              <Button className="publishbutton" type="submit" color={'primary'} >Publish property listing</Button>
             </div>
-                  <p>here goes a button with emotion</p>
+           
       </Form>
       </Formik>
     </div>

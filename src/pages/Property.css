@@ -224,3 +224,7 @@ input, checkbox{
 	letter-spacing: 0.4px;
 	padding: 3.25rem 0.62rem;
 }
+
+.publishbutton{
+	width: 274px;
+}
