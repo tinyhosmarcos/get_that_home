@@ -129,14 +129,14 @@ h4{
 	font-family: 'Montserrat';
 	font-style: normal;
 	font-weight: 400;
-	font-size: 10px;
-	line-height: 12px;
+	font-size: 0.62rem;
+	line-height: 0.75rem;
 	letter-spacing: 1.5px;
 	text-transform: uppercase;
 }
 
 p{
-	font-family: 'Inter';
+	font-family: 'Montserrat';
 	font-style: normal;
 	font-weight: 400;
 	font-size: 0.75rem;
@@ -189,4 +189,34 @@ input, checkbox{
 .subphotos{
 	display: flex;
 	flex-wrap: wrap;
+}
+
+.uploadbox{
+	width: 600px;
+	height: 136px;
+	left: 0px;
+	top: 668px;
+	background: #F5F5F6;
+	margin: 1rem 0rem;
+}
+
+.photobox{
+	width: 120px;
+	height: 120px;
+	border-radius: 0.5rem;
+	background: #E1E2E1;
+	margin: 0.5rem;
+	text-align: center;
+	
+}
+
+.photoboxtext{
+	font-family: 'Montserrat';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 0.75rem;
+	line-height: 1rem;
+	text-align: center;
+	letter-spacing: 0.4px;
+	padding: 3.25rem 0.62rem;
 }
