@@ -1,6 +1,7 @@
 import styled from '@emotion/styled'
 import { Field, Form, Formik } from 'formik'
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
 import Button from '../component/Button/Button'
 import Menu from '../component/Menu/Menu'
 import { colors } from '../styles/colors'
@@ -11,6 +12,7 @@ import PropertyCard from '../component/Card/PropertyCard'
 import { RiGithubFill, RiLinkedinBoxLine, RiReactjsLine } from "react-icons/ri";
 import { DiRuby } from "react-icons/di";
 import member1  from '../styles/logo/member1.png'
+import {BASE_URI} from '../config'
 
 const Landpage = () => {
   const FormWrapper = ({ className, ...props }) => (
@@ -226,6 +228,8 @@ const Landpage = () => {
     }
   `
 
+  
+  const navigate = useNavigate();
   return (
     <HomePageContainer>
       <Menu/>
@@ -298,7 +302,7 @@ const Landpage = () => {
           <h4>
             Getting someone to rent your apartment has never been this easy
           </h4>
-          <Button color={'primary'} size={'large'}>CREATE AN ACCOUNT NOW</Button>
+          <Button handleClick={() => navigate('/signup/type')} color={'primary'} size={'large'}>CREATE AN ACCOUNT NOW</Button>
         </div>
       </Section3>
       <Section4>
