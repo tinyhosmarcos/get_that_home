@@ -6,6 +6,9 @@ import "./Property.css";
 
 const ListingRent = () => {
 
+
+
+
   return(
     <div className="propContainer">
       <Formik
@@ -34,6 +37,7 @@ const ListingRent = () => {
             <label htmlFor="rent">Monthly Rent</label>
             <Field
               className="currency" 
+              name="monthlyrent"
               id= "monthlyrent" 
               type="number" 
               min="0.01" 
@@ -44,6 +48,7 @@ const ListingRent = () => {
             <label htmlFor="maintanance">Maintanance</label>
             <Field 
               className="currency"
+              name ="maintanance" 
               id ="maintanance"  
               type="number" 
               min="0.01" 
@@ -104,6 +109,7 @@ const ListingRent = () => {
               <label htmlFor="name">Area in M2</label>
               <Field 
                 className="area" 
+                name="area"
                 id= "area"
                 type="number" 
                 min="0.01" 
@@ -129,7 +135,8 @@ const ListingRent = () => {
           <div className="textitems">
             <label htmlFor="name">About this property</label>
             <textarea 
-              className="paratext" 
+              className="paratext"
+              name="textarea" 
               type="textarea" 
               id="textarea" 
               placeholder="My appartment is great because..."
