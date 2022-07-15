@@ -76,13 +76,11 @@ const ListingRent = () => {
           </div>
           
           <div className="photos">
-            <div>
               <h3>Photos</h3>
               <p>Upload as many photos as you wish</p>
-            </div>
             <div className="subphotos">
                   <button>choose</button>
-                  <p>No file chosen</p>
+                  <p className="">No file chosen</p>
                 </div>
               <p>Only images, max 5MB</p>
               <div className="uploadbox">
@@ -90,8 +88,9 @@ const ListingRent = () => {
                   <p className="photoboxtext">No photos yet</p>
                 </div>
               </div>
-         here goes a button with emotion
-          </div>
+            </div>
+                  <p>here goes a button with emotion</p>
+    
 
       </form>
     </div>

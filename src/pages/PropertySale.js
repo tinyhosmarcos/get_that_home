@@ -67,16 +67,20 @@ const ListingSale = () => {
           </div>
           
           <div className="photos">
-            <h3>Photos</h3>
-            <p>Upload as many photos as you wish</p>
-                <div className="subphotos">
+              <h3>Photos</h3>
+              <p>Upload as many photos as you wish</p>
+            <div className="subphotos">
                   <button>choose</button>
-                  <p>No file chosen</p>
+                  <p className="">No file chosen</p>
                 </div>
               <p>Only images, max 5MB</p>
-              <div> HERE GOES THE BOX</div>
-              <button> publish</button>
-          </div>
+              <div className="uploadbox">
+                <div className="photobox"> 
+                  <p className="photoboxtext">No photos yet</p>
+                </div>
+              </div>
+            </div>
+                  <p>here goes a button with emotion</p>
 
       </form>
     </div>

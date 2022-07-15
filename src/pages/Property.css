@@ -184,11 +184,14 @@ input, checkbox{
 .photos{
 	display: flex;
 	flex-direction: column;
+	margin: 1rem 0rem;
 }
 
 .subphotos{
 	display: flex;
 	flex-wrap: wrap;
+	margin: 0.5rem 0rem 0.25rem 0rem;
+	gap: 0.5rem;
 }
 
 .uploadbox{
