@@ -1,7 +1,7 @@
 import React from "react";
 import "./Property.css";
 
-const Listing = () => {
+const ListingRent = () => {
 
 
   return(
@@ -58,10 +58,21 @@ const Listing = () => {
             <p>Renters will read this first, so highlight any features or important information the apartment has.</p>
           </div>
           
+          <div className="photos">
+            <h3>Photos</h3>
+            <p>Upload as many photos as you wish</p>
+                <div>
+                  <button>choose</button>
+                  <p>No file chosen</p>
+                </div>
+              <p>Only images, max 5MB</p>
+              <div> HERE GOES THE BOX</div>
+              <button> publish</button>
+          </div>
 
       </form>
     </div>
   );
 }
 
-export default Listing;
+export default ListingRent;
