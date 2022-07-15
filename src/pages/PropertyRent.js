@@ -1,3 +1,4 @@
+import { Formik } from "formik";
 import React from "react";
 import "./Property.css";
 
@@ -6,7 +7,8 @@ const ListingRent = () => {
 
   return(
     <div className="propContainer">
-      <form>
+      <Formik>
+      <Form>
         <h1 className="title"> Create a property listing</h1>
           <div className= "firstblock">
             <label htmlFor="address">Address</label>
@@ -92,7 +94,8 @@ const ListingRent = () => {
                   <p>here goes a button with emotion</p>
     
 
-      </form>
+      </Form>
+      </Formik>
     </div>
   );
 }
