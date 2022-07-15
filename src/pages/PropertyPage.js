@@ -8,6 +8,7 @@ import { colors } from '../styles/colors';
 import { typography } from '../styles/typography';
 import { BiBed, BiBath, BiArea } from "react-icons/bi";
 import { MdPets } from "react-icons/md";
+import Footer from '../component/Footer/Footer';
 
 const PropertyPage = () => {
   const { properties } = useAuth();
@@ -55,6 +56,13 @@ const PropertyPage = () => {
     }
   `
   const PropertyLocation = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    & h6 {
+      ${typography.headline6}
+      color: ${colors.pink['200']}
+    }
   `
   const Property = styled.div`
   `
@@ -110,7 +118,8 @@ const PropertyPage = () => {
 
   const [property] = properties.filter(property => property.id === +id);
   const location = property && ("https://maps.google.com/maps?q=" + (property.latitud).toString() + "," + (property.longitud).toString() + "&hl=es&z=16&amp&output=embed")
-  console.log(location);
+  const addressLines = property && property.address && property.address.split(', ') || []
+  const [ direction, ...district ] = addressLines;
   return (
     <div>
       <Menu />
@@ -125,8 +134,8 @@ const PropertyPage = () => {
             <Property>
               <PropertyHeading>
                 <PropertyAddress>
-                  <h4>Direccion</h4>
-                  <p>Distrito</p>
+                  <h4>{direction}</h4>
+                  <p>{district.join(', ')}</p>
                 </PropertyAddress>
                 <PropertyrExpenses>
                   <PropertyPrice>
@@ -168,7 +177,6 @@ const PropertyPage = () => {
                   width="760px" 
                   height="760px"
                   src={location}
-                  // src="https://maps.google.com/maps?q=-12.273271198032754,-76.86910294063078&hl=es&z=14&amp;output=embed"
                 >
                 </iframe>
               </PropertyLocation>
@@ -179,6 +187,7 @@ const PropertyPage = () => {
           </PropertyContact>
         </PropertyContainer>
       </PropertyPage>}
+      <Footer />
     </div>
   )
 }
