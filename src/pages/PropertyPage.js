@@ -108,8 +108,8 @@ const PropertyPage = () => {
     }
   `
 
-  const [property] = properties.filter(property => property.id === +id)
-  console.log({property})
+  const [property] = properties.filter(property => property.id === +id);
+  const location = property && ("https://maps.google.com/maps?q=" + (property.latitud).toString() + "," + (property.longitud).toString() + "&hl=es&z=16&amp;output=embed")
   return (
     <div>
       <Menu />
@@ -164,13 +164,10 @@ const PropertyPage = () => {
                 <h6>Location</h6>
                 <p>{property.address}</p>
                 <iframe 
-                  width="300" 
-                  height="170" 
-                  frameborder="0" 
-                  scrolling="no" 
-                  marginheight="0" 
-                  marginwidth="0" 
-                  src="https://maps.google.com/maps?q='+YOUR_LAT+','+YOUR_LON+'&hl=es&z=14&amp;output=embed"
+                  width="760px" 
+                  height="760px"
+                  src={"https://maps.google.com/maps?q=" + (property.latitud).toString() + "," + (property.longitud).toString() + "&hl=es&z=16&amp;output=embed"}
+                  // src="https://maps.google.com/maps?q=-12.273271198032754,-76.86910294063078&hl=es&z=14&amp;output=embed"
                 >
                 </iframe>
               </PropertyLocation>
