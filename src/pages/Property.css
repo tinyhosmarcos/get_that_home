@@ -1,10 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400&display=swap');
 
-* {
+*{
 	padding: 0px;
 	margin: 0;
-	box-sizing: border-box;
 }
 
 input[type=number]::-webkit-inner-spin-button, 
@@ -14,31 +13,29 @@ input[type=number]::-webkit-outer-spin-button {
     appearance: none; 
 }
 
-
 .propContainer {
 	display: flex;
-    flex-direction: column;
-    align-items: center;
+  flex-direction: column;
+  align-items: center;
 	justify-content: center;
-
 }
 
 form {
 	width: 100%;
-    height: 100%;
-	margin-top: 30px;
+  height: 100%;
+	margin-top: 2rem;
 	background: #fff;
 	border-radius: 5px;
 	padding: 0px 120px;
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 	align-content: center;
 }
 
 
 label {
 	display: block;
-	color: #1f1f1f;
+	color: #373737;
 	font-family: 'Inter';
 	font-style: normal;
 	font-weight: 400;
@@ -46,36 +43,69 @@ label {
 	line-height: 0.75rem;
 	letter-spacing: 1.5px;
 	text-transform: uppercase;
+	margin: 0.5rem 0rem 0.5rem;
 }
 
-
-.formulario input,
-.formulario textarea {
-	font-family: 'Open Sans', sans-serif;
-	width: 356px;
+.address{
+	width: 600px;
   height: 40px;
-	border-radius: 5px;
-	border: 1px solid #F48FB1;
-	font-size: 15px;
-	padding: 10px;
-	margin-bottom: 5px;
 	color: #8E8E8E;
 }
 
+input, textarea {
+	font-family: 'Montserrat';
+	border-radius: 0.5rem;
+	border: 1px solid #F48FB1;
+	font-size: 1rem;
+	padding: 0.31rem;
+	color: #8E8E8E;
+}
 
-.formulario button[type="submit"] {
-	display: block;
-	background: pink;
-	font-weight: 600;
-	font-family: 'Open Sans', sans-serif;
-	border: none;
-	cursor: pointer;
-	width: 200px;
-	padding: 10px;
-	border-radius: 5px;
-	color: #fff;
-	font-size: 16px;
-	transition: .3s ease all;
+.currency{
+	width: 356px;
+	height: 40px;
+}
+
+.area{
+	width: 120px;
+	height: 40px;
+}
+
+.secondblock{
+	display: flex;
+	flex-direction: row;
+	gap: 1rem; 
+}
+
+select{
+	width: 120px;
+	height: 36px;
+	font-family: 'Montserrat';
+	border-radius: 0.5rem;
+	border: 1px solid #F48FB1;
+	font-size: 1rem;
+	text-align: center;
+}
+
+select:required:invalid {
+  color: #8E8E8E;
+}
+option[value=""][disabled] {
+  display: none;
+}
+option {
+  color: #8E8E8E;
+}
+
+textarea{
+	gap: 0.5rem;
+	width: 600px;
+	height: 76px;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 0.87rem;
+	line-height: 1.25rem;
 }
 
 h1{
@@ -84,6 +114,7 @@ h1{
 	font-weight: 400;
 	font-size: 2rem;
 	line-height: 2.5rem;
+	margin-bottom: 1rem;
 }
 
 h3{
@@ -94,21 +125,53 @@ h3{
 	line-height: 1.75rem;
 }
 
+h4{
+	font-family: 'Montserrat';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 10px;
+	line-height: 12px;
+	letter-spacing: 1.5px;
+	text-transform: uppercase;
+}
+
 p{
 	font-family: 'Inter';
 	font-style: normal;
 	font-weight: 400;
 	font-size: 0.75rem;
 	line-height: 1rem;
+	letter-spacing: 0.4px;
+	color: #8E8E8E;
 }
+
+.proptitle{
+	margin-top: 1rem;
+}
+
+input, checkbox{
+	border: 1px solid #F48FB1;
+}
+
 .checkboxes{
-    display: flex;
-    flex-direction: row;
+	display: flex;
+	gap: 1rem;
+}
+
+.checks{
+	display: flex;
+	flex-direction: row;
+	gap: 0.25rem;
+}
+
+.petbox{
+	margin-bottom: 0.5rem;
 }
 
 .petcheck{
     display: flex;
     flex-direction: row;
+		gap: 0.5rem;
 }
 
 .paratext{
@@ -118,8 +181,12 @@ p{
     resize: none;
 }
 
+.photos{
+	display: flex;
+	flex-direction: column;
+}
+
 .subphotos{
 	display: flex;
-	flex-direction: row;
 	flex-wrap: wrap;
 }
