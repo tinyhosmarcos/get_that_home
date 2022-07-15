@@ -5,7 +5,7 @@ import { RiUploadLine } from "react-icons/ri";
 import "./Property.css";
 
 const ListingRent = () => {
-
+ 
   return(
     <div className="propContainer">
       <Formik
@@ -141,12 +141,14 @@ const ListingRent = () => {
             <h3>Photos</h3>
             <p>Upload as many photos as you wish</p>
               <div className="subphotos">
-              <Button type="submit" icon={<RiUploadLine/>} color={'primary'}>Choose a file</Button>
+              <Button icon={<RiUploadLine/>} color={'primary'}>Choose a file</Button>
                 <p className="">No file chosen</p>
                 </div>
               <p>Only images, max 5MB</p>
               <div className="uploadbox">
-                <div className="photobox"> 
+                <div 
+                  className="photobox"
+                    > 
                   <p className="photoboxtext">No photos yet</p>
                 </div>
               </div>
