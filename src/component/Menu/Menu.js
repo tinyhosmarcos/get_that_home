@@ -56,7 +56,7 @@ const Menu = () => {
           : 
           (
             <>
-              <Button icon={<RiUserAddLine/>} color={'secondary'} style={{width: '101px'}}>JOIN</Button>
+              <Button handleClick={() => navigate('/signup/type')} icon={<RiUserAddLine/>} color={'secondary'} style={{width: '101px'}}>JOIN</Button>
               <Button handleClick={() => navigate('/login')} icon={<RiUserReceived2Line/>} color={'primary'} style={{width: '101px'}}>LOGIN</Button>
             </>
           )}
