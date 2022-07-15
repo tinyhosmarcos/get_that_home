@@ -7,9 +7,6 @@ import styled from "@emotion/styled";
 
 
 const ListingRent = () => {
-<<<<<<< HEAD
- 
-=======
 
   const PropContainer = styled.div`
 	display: flex;
@@ -141,7 +138,7 @@ function FormContainer ({children, handleClick, ...props}){
   );
 }
 
->>>>>>> 96b445abb4761750a1e3065be91a41d96c30beab
+
   return(
     <PropContainer>
       <Formik
@@ -276,19 +273,20 @@ function FormContainer ({children, handleClick, ...props}){
               <p>Renters will read this first, so highlight any features or important information the apartment has.</p>
           </div>
           <PhotosContainer>            
-            <Title2>Photos</Title2>
-            <p>Upload as many photos as you wish</p>
-<<<<<<< HEAD
+              <Title2>Photos</Title2>
+                <p>Upload as many photos as you wish</p>
+
               <div className="subphotos">
-              <Button icon={<RiUploadLine/>} color={'primary'}>Choose a file</Button>
-=======
+                <Button icon={<RiUploadLine/>} color={'primary'}>Choose a file</Button>
+
               <Subphotos>
                 <Button type="submit" icon={<RiUploadLine/>} color={'primary'}>Choose a file</Button>
->>>>>>> 96b445abb4761750a1e3065be91a41d96c30beab
+
                 <p className="">No file chosen</p>
               </Subphotos>
+              </div>
               <p>Only images, max 5MB</p>
-<<<<<<< HEAD
+
               <div className="uploadbox">
                 <div 
                   className="photobox"
@@ -296,14 +294,14 @@ function FormContainer ({children, handleClick, ...props}){
                   <p className="photoboxtext">No photos yet</p>
                 </div>
               </div>
-=======
+
               <Uploadbox>
                 <Photobox> 
                   <Photoboxtext>No photos yet</Photoboxtext>
                 </Photobox>
               </Uploadbox>
->>>>>>> 96b445abb4761750a1e3065be91a41d96c30beab
-              <Button className="publishbutton" type="submit" color={'primary'} >Publish property listing</Button>
+
+              <Button className="publishbutton" type="submit" color={'primary'} >Publish property listing </Button>
             </PhotosContainer>
            
       </FormContainer>
