@@ -1,13 +1,13 @@
-import { Formik } from "formik";
+import { Formik, Form, Field } from 'formik';
 import React from "react";
 import "./Property.css";
 
 const ListingRent = () => {
 
-
   return(
     <div className="propContainer">
       <Formik>
+
       <Form>
         <h1 className="title"> Create a property listing</h1>
           <div className= "firstblock">
@@ -35,26 +35,30 @@ const ListingRent = () => {
 
           <div className= "secondblock">
             <div>
-                <label for="bed">Bedroom</label>
-                  <select name="quantity" id="quan">
-                    <option value="" disabled selected hidden>select...</option>
-                    <option value="quantity">1</option>
-                    <option value="quantity">2</option>
-                    <option value="quantity">3</option>
-                    <option value="quantity">4</option>
-                    <option value="quantity">5</option>
+                  <Field name="Bedrooms">
+                     {({ field }) => (
+                        <select {...field}>
+                         <option value="" disabled selected hidden>select...</option>
+                           {[1,2,3,4,5].map(i => 
+                              <option key={i} value={i}>{i}</option>
+                                  )}
                   </select>
+             )}
+             </Field>
+
                 </div>
 
                 <div>
-                <label for="bath">Bathroom</label>
-                <select name="quantity" id="quan">
-                <option value="" disabled selected hidden>select...</option>
-                  <option value="quantity">1</option>
-                  <option value="quantity">2</option>
-                  <option value="quantity">3</option>
-                  <option value="quantity">4</option>
-                </select>
+                <Field name="Bathroom">
+                     {({ field }) => (
+                        <select {...field}>
+                         <option value="" disabled selected hidden>select...</option>
+                           {[1,2,3,4,5].map(i => 
+                              <option key={i} value={i}>{i}</option>
+                                  )}
+                  </select>
+                    )}
+                    </Field>
               </div>
 
               <div>
