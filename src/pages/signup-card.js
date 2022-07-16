@@ -17,7 +17,7 @@ const FormContainer = styled.div`
   justify-content: center;
   align-items: center;
   background: ${colors.white};
-  background: linear-gradient(0deg, ${colors.white} 50%, ${colors.pink['100']} 50%);
+  background: linear-gradient(0deg, ${colors.white} 50%, ${colors.pink['300']} 50%);
  & form {
   width: 388px;
   height: 468px;
