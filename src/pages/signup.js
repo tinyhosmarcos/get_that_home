@@ -12,8 +12,9 @@ import { typography } from "../styles/typography";
 // import "./signup.css"
 
 const Container = styled.div`
-background:  ${colors.pink['300']};
+background: ${colors.pink['300']};
 `;
+
 const SecondContainer = styled.div`
 display: flex;
 flex-direction: column;
@@ -35,7 +36,7 @@ const Card = styled.div`
 width: 280px;
 height: 274px;
 border-radius: 5px;
-${shadows.shadow1}
+${shadows.shadow1};
 background: ${colors.white};
 cursor: pointer;
 `;
@@ -52,7 +53,7 @@ text-align: center;
 `;
 const BigTitle = styled.p`
 font-family: 'Montserrat';
-${typography.headline2}
+${typography.headline2};
 font-style: normal;
 `;
 
@@ -60,7 +61,7 @@ const CardTitle = styled.p`
 text-align: center;
 font-family: 'Montserrat';
 font-style: normal;
-${typography.headline6}
+${typography.headline6};
 `;
 
 const CardSubtitle = styled.p`
@@ -68,21 +69,22 @@ text-align: center;
 font-family: 'Montserrat';
 ${typography.subtitle2}
 letter-spacing: 0.1px
-`
+`;
 
 
 const Signup = () => {
   const navigate = useNavigate();
   const { setProfileType } = useAuth();
 
-function CardType({ title, subtitle }) {
-  return (
-        <div>  
-          <CardTitle>{title}</CardTitle>
-          <CardSubtitle>{subtitle}</CardSubtitle>
-        </div>
-  );
-}
+
+    function CardType({ title, subtitle }) {
+      return (
+            <div>  
+              <CardTitle>{title}</CardTitle>
+              <CardSubtitle>{subtitle}</CardSubtitle>
+            </div>
+      );
+    }
 
   return(
     <>
