@@ -86,30 +86,83 @@ const Login= () =>{
         <h5>Login</h5>
           <Formik
             initialValues={{
-              email: '',
-              password: '',
+              email: 'alex',
+              password: '123',
             }}
+
+            validate={(values) => {
+              const errors = {};
+              const emailRegex = /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/;
+              const passwordRegex = /^(?=.*\d)[A-Za-z\d]{6,}$/;
+
+              if (!emailRegex.test(values.email)) {
+                errors.email = "Not valid email";
+                console.log(errors.email);
+              }
+              if (!passwordRegex.test(values.password)) {
+                errors.password = "Password min with 6 letters";
+                console.log(errors.password);
+              }
+
+
+              console.log(values);
+              console.log(errors);
+              return errors;
+            }}
+
             onSubmit={ async (values) => {
               console.log(values)
               await login(values)
             }}
           >
-            <Form>
-            <div>
-              <label htmlFor="email">Email</label>
-              <CustomField type='email' name='email' placeholder='user@mail.com'/>
-            </div>
-            <div>
-              <label htmlFor="password">Password</label>
-              <CustomField type='password' name='password' placeholder='******'/>
-            </div>
-            <SubmitContainer>
-              <Button type="submit" icon={<RiUserReceivedLine/>} color={'primary'}>LOGIN</Button>
-            </SubmitContainer> 
-          </Form>
-        </Formik>
-      </FormContainer>
-    </LoginContainer>
+
+
+{({
+          values,
+          errors,
+          touched,
+          handleChange,
+          handleBlur,
+          handleSubmit,
+          setFieldValue,
+        }) => (
+          
+
+
+          <Form>
+          <div>
+            <label htmlFor="email">Email</label>
+            <CustomField error={errors.email && touched.email} type='email' name='email' placeholder='user@mail.com'/>
+            {errors.email && touched.email && <p style={{color:"red"}}>{errors.email}</p>}
+          </div>
+          <div>
+            <label htmlFor="password">Password</label>
+            <CustomField error={errors.password && touched.password} type='password' name='password' placeholder='******'/>
+            {errors.password && touched.password && <p style={{color:"red"}}>{errors.password}</p>}
+          </div>
+          <SubmitContainer>
+            <Button type="submit" icon={<RiUserReceivedLine/>} color={'primary'}>LOGIN</Button>
+          </SubmitContainer> 
+        </Form>
+
+
+
+        )}
+
+
+
+      </Formik>
+    </FormContainer>
+  </LoginContainer>
+
+
+
+
+
+
+
+
+
 
   );
 }
