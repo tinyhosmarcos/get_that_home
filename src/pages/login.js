@@ -120,32 +120,25 @@ const Login= () =>{
           <Form>
           <div>
             <label htmlFor="email">Email</label>
-            <CustomField error={errors.email && touched.email} type='email' name='email' placeholder='user@mail.com'/>
-            {errors.email && touched.email && <p style={{color:"red"}}>{errors.email}</p>}
+            <CustomField type='email' name='email' placeholder='user@mail.com'/>
+            {errors.email && touched.email && 
+            <p style={{color:"red"}}>{errors.email}</p>}
           </div>
           <div>
             <label htmlFor="password">Password</label>
-            <CustomField error={errors.password && touched.password} type='password' name='password' placeholder='******'/>
-            {errors.password && touched.password && <p style={{color:"red"}}>{errors.password}</p>}
+            <CustomField type='password' name='password' placeholder='******'/>
+            {errors.password && touched.password && 
+            <p style={{color:"red"}}>{errors.password}</p>}
           </div>
           <SubmitContainer>
-            <Button type="submit" icon={<RiUserReceivedLine/>} color={'primary'}>LOGIN</Button>
+          
+            <Button {Object.keys(errors).length>0?"disabled":""} type="submit" icon={<RiUserReceivedLine/>} color={'primary'}>LOGIN</Button>
           </SubmitContainer> 
         </Form>
         )}
       </Formik>
     </FormContainer>
   </LoginContainer>
-
-
-
-
-
-
-
-
-
-
   );
 }
 
