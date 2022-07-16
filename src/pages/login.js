@@ -132,7 +132,7 @@ const Login= () =>{
           </div>
           <SubmitContainer>
           
-            <Button {Object.keys(errors).length>0?"disabled":""} type="submit" icon={<RiUserReceivedLine/>} color={'primary'}>LOGIN</Button>
+            <Button type="submit" icon={<RiUserReceivedLine/>} color={'primary'}>LOGIN</Button>
           </SubmitContainer> 
         </Form>
         )}
