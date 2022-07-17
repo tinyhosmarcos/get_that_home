@@ -92,15 +92,26 @@ const Login= () =>{
 
             validate={(values) => {
               const errors = {};
+
+              // !!!! --->>> validaciones regex de las Values <<<---
               const regexSentences = {
                 email: /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/,
                 password: /^(?=.*\d)[A-Za-z\d]{6,}$/,
               }
-              if (!regexSentences.email.test(values.email)) {
-                errors.email = "Not valid email";}
-              if (!regexSentences.password.test(values.password)) {
-                errors.password = "Password min with 6 numbers";
+
+              // !!!! --->>> no es necesario cambiar, verificarRegex es una funcion <<<---
+              function verificarRegex(texto){
+                if (!regexSentences[texto].test(values[texto])) {
+                  errors[texto] = "Not valid "+texto;}
               }
+
+              // !!!! --->>> colocar las variables en la funcion verificarRegex <<<---
+              verificarRegex("email")
+              verificarRegex("password")
+
+              // !!!! --->>> si se necesita se agrega mas Info al mensaje de error <<<---
+              errors.password=errors.password+", at least 6 numbers"
+              
               return errors;
             }}
 
@@ -127,6 +138,7 @@ const Login= () =>{
           <div>
             <label htmlFor="password">Password</label>
             <CustomField type='password' name='password' placeholder='******'/>
+            {/* !!!! --->>> Colocar despues de cada campo por verificar <<<---*/}
             {errors.password && touched.password && 
             <p style={{color:"red"}}>{errors.password}</p>}
           </div>
