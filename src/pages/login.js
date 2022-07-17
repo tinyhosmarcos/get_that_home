@@ -99,15 +99,15 @@ const Login= () =>{
                 password: /^(?=.*\d)[A-Za-z\d]{6,}$/,
               }
 
-              // !!!! --->>> no es necesario cambiar, verificarRegex es una funcion <<<---
-              function verificarRegex(texto){
+              // !!!! --->>> STATIC, no es necesario cambiar, verificarRegex es una funcion <<<---
+              function verificarObjectRegex(objeto){
+                objeto.map(texto=>{
                 if (!regexSentences[texto].test(values[texto])) {
                   errors[texto] = "Not valid "+texto;}
+               })
               }
-
-              // !!!! --->>> colocar las variables en la funcion verificarRegex <<<---
-              verificarRegex("email")
-              verificarRegex("password")
+              // !!!! --->>> STATIC, no es necesario cambiar (solo usa las keys del objeto Values, osea los campos) <<<---
+              verificarObjectRegex(Object.keys(values))
 
               // !!!! --->>> si se necesita se agrega mas Info al mensaje de error <<<---
               errors.password=errors.password+", at least 6 numbers"
