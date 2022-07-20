@@ -86,31 +86,71 @@ const Login= () =>{
         <h5>Login</h5>
           <Formik
             initialValues={{
-              email: '',
-              password: '',
+              email: 'alex',
+              password: '123',
             }}
+
+            validate={(values) => {
+              const errors = {};
+
+              // !!!! --->>> validaciones regex de las Values <<<---
+              const regexSentences = {
+                email: /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/,
+                password: /^(?=.*\d)[A-Za-z\d]{6,}$/,
+              }
+
+              // !!!! --->>> STATIC, no es necesario cambiar, verificarRegex es una funcion <<<---
+              function verificarObjectRegex(objeto){
+                objeto.map(texto=>{
+                if (!regexSentences[texto].test(values[texto])) {
+                  errors[texto] = "Not valid "+texto;}
+               })
+              }
+              // !!!! --->>> STATIC, no es necesario cambiar (solo usa las keys del objeto Values, osea los campos) <<<---
+              verificarObjectRegex(Object.keys(values))
+
+              // !!!! --->>> si se necesita se agrega mas Info al mensaje de error <<<---
+              errors.password=errors.password+", at least 6 numbers"
+              
+              return errors;
+            }}
+
             onSubmit={ async (values) => {
-              console.log(values)
               await login(values)
             }}
           >
-            <Form>
-            <div>
-              <label htmlFor="email">Email</label>
-              <CustomField type='email' name='email' placeholder='user@mail.com'/>
-            </div>
-            <div>
-              <label htmlFor="password">Password</label>
-              <CustomField type='password' name='password' placeholder='******'/>
-            </div>
-            <SubmitContainer>
-              <Button type="submit" icon={<RiUserReceivedLine/>} color={'primary'}>LOGIN</Button>
-            </SubmitContainer> 
-          </Form>
-        </Formik>
-      </FormContainer>
-    </LoginContainer>
-
+{({
+          values,
+          errors,
+          touched,
+          handleChange,
+          handleBlur,
+          handleSubmit,
+          setFieldValue,
+        }) => (
+          <Form>
+          <div>
+            <label htmlFor="email">Email</label>
+            <CustomField type='email' name='email' placeholder='user@mail.com'/>
+            {errors.email && touched.email && 
+            <p style={{color:"red"}}>{errors.email}</p>}
+          </div>
+          <div>
+            <label htmlFor="password">Password</label>
+            <CustomField type='password' name='password' placeholder='******'/>
+            {/* !!!! --->>> Colocar despues de cada campo por verificar <<<---*/}
+            {errors.password && touched.password && 
+            <p style={{color:"red"}}>{errors.password}</p>}
+          </div>
+          <SubmitContainer>
+          
+            <Button type="submit" icon={<RiUserReceivedLine/>} color={'primary'}>LOGIN</Button>
+          </SubmitContainer> 
+        </Form>
+        )}
+      </Formik>
+    </FormContainer>
+  </LoginContainer>
   );
 }
 

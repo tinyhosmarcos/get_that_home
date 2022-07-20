@@ -17,11 +17,8 @@ function App() {
       <Route path="/login" element={<Login />} />
       <Route path="/signup/profile" element={<SignupCard />} />
       <Route path="/signup/type" element={<Signup />} />
-
       <Route path="/property/new" element={<PropertyRent />} />
-
       <Route path="/property/:id" element={<PropertyPage />} />
-
     </Routes>
 
   )

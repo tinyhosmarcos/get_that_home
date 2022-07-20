@@ -1,18 +1,21 @@
-import styled from '@emotion/styled'
-import { Field, Form, Formik } from 'formik'
-import React from 'react'
-import Button from '../component/Button/Button'
-import Menu from '../component/Menu/Menu'
-import { colors } from '../styles/colors'
-import { shadows } from '../styles/shadows'
-import { typography } from '../styles/typography'
-import {ReactComponent as ReactIllustration} from '../../src/styles/logo/IllustrationLandPage.svg'
+import styled from '@emotion/styled';
+import { Field, Form, Formik } from 'formik';
+import React from 'react';
+import Button from '../component/Button/Button';
+import Menu from '../component/Menu/Menu';
+import { colors } from '../styles/colors';
+import { shadows } from '../styles/shadows';
+import { typography } from '../styles/typography';
+import {ReactComponent as ReactIllustration} from '../../src/styles/logo/IllustrationLandPage.svg';
 import PropertyCard from '../component/Card/PropertyCard'
 import { RiGithubFill, RiLinkedinBoxLine, RiReactjsLine } from "react-icons/ri";
 import { DiRuby } from "react-icons/di";
-import member1  from '../styles/logo/member1.png'
+import member1  from '../styles/logo/member1.png';
+import { useNavigate } from 'react-router-dom';
 
 const Landpage = () => {
+  const navigate = useNavigate();
+
   const FormWrapper = ({ className, ...props }) => (
     <Form className={className} {...props} />
   );
@@ -298,7 +301,7 @@ const Landpage = () => {
           <h4>
             Getting someone to rent your apartment has never been this easy
           </h4>
-          <Button color={'primary'} size={'large'}>CREATE AN ACCOUNT NOW</Button>
+          <Button handleClick={() => navigate('/signup/type')} color={'primary'} size={'large'}>CREATE AN ACCOUNT NOW</Button>
         </div>
       </Section3>
       <Section4>
