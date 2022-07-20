@@ -14,6 +14,7 @@ const PropertyCard = ({...props}) => {
     width: 300px;
     min-height: 360px;
     border-radius: 8px;
+    cursor: pointer;
     ${shadows.shadow1}
     ${props => props.isOwner ? null : `border-bottom: 7px solid ${colors.pink['200']}` }
   `
