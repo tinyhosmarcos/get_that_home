@@ -8,6 +8,7 @@ export const colors = {
     50: "#F48FB1", /* Pink -  for shallow, use 15% */
     100: "#FFC1E3", /*LightPink*/
     200: "#BF5F82", /* DarkPink*/
+    300: "#fed2e1", /*ultra soft*/
   },
   black: "#000000",
   white: "#FFFFFF",

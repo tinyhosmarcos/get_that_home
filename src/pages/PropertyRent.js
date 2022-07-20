@@ -138,6 +138,7 @@ function FormContainer ({children, handleClick, ...props}){
   );
 }
 
+
   return(
     <PropContainer>
       <Formik
@@ -272,19 +273,35 @@ function FormContainer ({children, handleClick, ...props}){
               <p>Renters will read this first, so highlight any features or important information the apartment has.</p>
           </div>
           <PhotosContainer>            
-            <Title2>Photos</Title2>
-            <p>Upload as many photos as you wish</p>
+              <Title2>Photos</Title2>
+                <p>Upload as many photos as you wish</p>
+
+              <div className="subphotos">
+                <Button icon={<RiUploadLine/>} color={'primary'}>Choose a file</Button>
+
               <Subphotos>
                 <Button type="submit" icon={<RiUploadLine/>} color={'primary'}>Choose a file</Button>
+
                 <p className="">No file chosen</p>
               </Subphotos>
+              </div>
               <p>Only images, max 5MB</p>
+
+              <div className="uploadbox">
+                <div 
+                  className="photobox"
+                    > 
+                  <p className="photoboxtext">No photos yet</p>
+                </div>
+              </div>
+
               <Uploadbox>
                 <Photobox> 
                   <Photoboxtext>No photos yet</Photoboxtext>
                 </Photobox>
               </Uploadbox>
-              <Button className="publishbutton" type="submit" color={'primary'} >Publish property listing</Button>
+
+              <Button className="publishbutton" type="submit" color={'primary'} >Publish property listing </Button>
             </PhotosContainer>
            
       </FormContainer>
