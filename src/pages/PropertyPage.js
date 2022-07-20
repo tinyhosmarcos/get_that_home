@@ -3,12 +3,14 @@ import React from 'react'
 import { useParams } from 'react-router-dom';
 import Menu from '../component/Menu/Menu';
 import { useAuth } from '../context/auth-context'
-import { RiMoneyDollarCircleLine } from "react-icons/ri";
+import { RiMoneyDollarCircleLine, RiHeartLine } from "react-icons/ri";
 import { colors } from '../styles/colors';
 import { typography } from '../styles/typography';
 import { BiBed, BiBath, BiArea } from "react-icons/bi";
 import { MdPets } from "react-icons/md";
 import Footer from '../component/Footer/Footer';
+import PropertyContact from '../component/Property-contact/PropertyContact';
+
 
 const PropertyPage = () => {
   const { properties } = useAuth();
@@ -19,6 +21,10 @@ const PropertyPage = () => {
   `
   const PropertyContainer = styled.div`
     padding: 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1rem;
   `
   const PropertyWrapper = styled.div`
   `
@@ -64,10 +70,6 @@ const PropertyPage = () => {
       color: ${colors.pink['200']}
     }
   `
-  const Property = styled.div`
-  `
-  const PropertyContact = styled.div`
-  `
   const PropertyHeading = styled.div`
     display: flex;
     justify-content: space-around;
@@ -90,12 +92,15 @@ const PropertyPage = () => {
   const PropertyMaintenance = styled.div`
     display: flex;
     justify-content: flex-end;
-    ${typography.headline6}
-    color: ${colors.gray['medium']}
+    color: ${colors.gray['medium']};
+    & h6 {
+      ${typography.headline6}
+    }
   `
   const PropertyPrice = styled.div`
     display: flex;
     flex-direction: row;
+    align-items: center;
     gap: 12px;
     ${typography.headline4}
     color: ${colors.gray['medium']}
@@ -123,70 +128,69 @@ const PropertyPage = () => {
   return (
     <div>
       <Menu />
-      {property && <PropertyPage>
-        <PropertyContainer>
-          <PropertyWrapper>
-            <div style={{width: '100%', display: 'flex', justifyContent: 'space-around'}}>
-              <PropertyImage>
-                <img src="https://www.gannett-cdn.com/-mm-/05b227ad5b8ad4e9dcb53af4f31d7fbdb7fa901b/c=0-64-2119-1259/local/-/media/USATODAY/USATODAY/2014/08/13/1407953244000-177513283.jpg" alt="hotel room" />
-              </PropertyImage>
-            </div>
-            <Property>
-              <PropertyHeading>
-                <PropertyAddress>
-                  <h4>{direction}</h4>
-                  <p>{district.join(', ')}</p>
-                </PropertyAddress>
-                <PropertyrExpenses>
-                  <PropertyPrice>
-                    <RiMoneyDollarCircleLine/>
-                    <h4>{property.monthly_price}</h4>
-                  </PropertyPrice>
-                  {property.maintenance && 
-                    <PropertyMaintenance>
-                      <h6>+{property.maintenance}</h6>
-                    </PropertyMaintenance>}
-                </PropertyrExpenses>
-              </PropertyHeading>
-              <PropertyDetails>
-                <div>
-                  <BiBed />
-                  <h5>{property.bedrooms_count} bedrooms</h5>
-                </div>
-                <div>
-                  <BiBath />
-                  <h5>{property.bathrooms_count} bedrooms</h5>
-                </div>
-                <div>
-                  <BiArea />
-                  <h5>{property.area} m2</h5>
-                </div>
-                <div>
-                  <MdPets />
-                  {property.pets_allowed ? <h5>Pets allowed</h5> : <h5>Pets not allowed</h5>}
-                </div>
-              </PropertyDetails>
-              <PropertyDescription>
-                <h6>About this property</h6>
-                <p>{property.description}</p>
-              </PropertyDescription>
-              <PropertyLocation>
-                <h6>Location</h6>
-                <p>{property.address}</p>
-                <iframe 
-                  width="760px" 
-                  height="760px"
-                  src={location}
-                >
-                </iframe>
-              </PropertyLocation>
-            </Property>
-          </PropertyWrapper>
-          <PropertyContact>
-
-          </PropertyContact>
-        </PropertyContainer>
-      </PropertyPage>}
+      {property && 
+        <PropertyPage>
+          <PropertyContainer>
+            <PropertyWrapper>
+              <div style={{width: '100%', display: 'flex', justifyContent: 'space-around'}}>
+                <PropertyImage>
+                  <img src="https://www.gannett-cdn.com/-mm-/05b227ad5b8ad4e9dcb53af4f31d7fbdb7fa901b/c=0-64-2119-1259/local/-/media/USATODAY/USATODAY/2014/08/13/1407953244000-177513283.jpg" alt="hotel room" />
+                </PropertyImage>
+              </div>
+              <div>
+                <PropertyHeading>
+                  <PropertyAddress>
+                    <h4>{direction}</h4>
+                    <p>{district.join(', ')}</p>
+                  </PropertyAddress>
+                  <PropertyrExpenses>
+                    <PropertyPrice>
+                      <RiMoneyDollarCircleLine/>
+                      <h4>{property.monthly_price}</h4>
+                    </PropertyPrice>
+                    {property.maintenance && 
+                      <PropertyMaintenance>
+                        <h6>+ {property.maintenance}</h6>
+                      </PropertyMaintenance>}
+                  </PropertyrExpenses>
+                </PropertyHeading>
+                <PropertyDetails>
+                  <div>
+                    <BiBed />
+                    <h5>{property.bedrooms_count} bedrooms</h5>
+                  </div>
+                  <div>
+                    <BiBath />
+                    <h5>{property.bathrooms_count} bedrooms</h5>
+                  </div>
+                  <div>
+                    <BiArea />
+                    <h5>{property.area} m2</h5>
+                  </div>
+                  <div>
+                    <MdPets />
+                    {property.pets_allowed ? <h5>Pets allowed</h5> : <h5>Pets not allowed</h5>}
+                  </div>
+                </PropertyDetails>
+                <PropertyDescription>
+                  <h6>About this property</h6>
+                  <p>{property.description}</p>
+                </PropertyDescription>
+                <PropertyLocation>
+                  <h6>Location</h6>
+                  <p>{property.address}</p>
+                  <iframe 
+                    width="760px" 
+                    height="760px"
+                    src={location}
+                  >
+                  </iframe>
+                </PropertyLocation>
+              </div>
+            </PropertyWrapper>
+            <PropertyContact property={property} />
+          </PropertyContainer>
+        </PropertyPage>}
       <Footer />
     </div>
   )
