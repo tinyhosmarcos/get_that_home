@@ -13,7 +13,6 @@ const Menu = () => {
     height: 72px;
     background-color: ${colors.white};
     padding: 0 120px;
-    margin-bottom: 10px;
     display: flex;
     align-items: center;
     ${shadows.shadow1}
@@ -36,7 +35,7 @@ const Menu = () => {
     <MenuContainer>
       <MenuWrapper>
         <div>
-          <ReactLogo/>
+          <ReactLogo onClick={() => navigate('/')} />
         </div>
         <MenuBottons>
           <Button icon={<RiSearchLine/>} color={'ghost'} size={'small'} >FIND A HOME</Button>

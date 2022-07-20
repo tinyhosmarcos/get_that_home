@@ -8,68 +8,69 @@ import styled from "@emotion/styled";
 import { colors } from "../styles/colors";
 import { shadows } from '../styles/shadows'
 import { typography } from "../styles/typography";
+import Footer from "../component/Footer/Footer";
 
-// import "./signup.css"
 
 const Container = styled.div`
-background: ${colors.pink['300']};
-`;
+  height: 87.6vh;
+`
 
 const SecondContainer = styled.div`
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-background: ${colors.white};
-background: linear-gradient(0deg, ${colors.white} 50%, ${colors.pink['300']} 50%);
-`;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 64px;
+  background: ${colors.white};
+  background: linear-gradient(0deg, ${colors.white} 35%, ${colors.pink['300']}75 35%);
+`
 
 const ProfilesContainer = styled.div`
-display: flex;
-flex-direction: row;
-justify-content: center;
-gap: 3rem;
-margin-top: 3rem;
-`;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 3rem;
+  margin-top: 3rem;
+`
 
 const Card = styled.div`
-width: 280px;
-height: 274px;
-border-radius: 5px;
-${shadows.shadow1};
-background: ${colors.white};
-cursor: pointer;
-`;
+  width: 280px;
+  height: 274px;
+  border-radius: 8px;
+  ${shadows.shadow1};
+  background: ${colors.white};
+  cursor: pointer;
+`
 
 const TitleContainer = styled.div`
-text-align: center;
-margin-top: 1rem;
-`;
+  text-align: center;
+  margin-top: 1rem;
+`
 
 const SubTitle = styled.p`
-font-family: 'Montserrat';
-${typography.headline5}
-text-align: center;
-`;
+  font-family: 'Montserrat';
+  ${typography.headline5}
+  text-align: center;
+`
 const BigTitle = styled.p`
-font-family: 'Montserrat';
-${typography.headline2};
-font-style: normal;
-`;
+  font-family: 'Montserrat';
+  ${typography.headline2};
+  font-style: normal;
+`
 
 const CardTitle = styled.p`
-text-align: center;
-font-family: 'Montserrat';
-font-style: normal;
-${typography.headline6};
-`;
+  text-align: center;
+  font-family: 'Montserrat';
+  font-style: normal;
+  ${typography.headline6};
+`
 
 const CardSubtitle = styled.p`
-text-align: center;
-font-family: 'Montserrat';
-${typography.subtitle2}
-letter-spacing: 0.1px
-`;
+  text-align: center;
+  font-family: 'Montserrat';
+  ${typography.subtitle2}
+  letter-spacing: 0.1px
+`
 
 
 const Signup = () => {
@@ -79,7 +80,7 @@ const Signup = () => {
 
     function CardType({ title, subtitle }) {
       return (
-            <div>  
+            <div>
               <CardTitle>{title}</CardTitle>
               <CardSubtitle>{subtitle}</CardSubtitle>
             </div>
@@ -89,7 +90,7 @@ const Signup = () => {
   return(
     <>
     <Container>
-         <Menu />
+      <Menu />
       <SecondContainer>
         <TitleContainer>
           <SubTitle> Selecciona el perfil con el que te identificas</SubTitle>
@@ -119,6 +120,7 @@ const Signup = () => {
       </ProfilesContainer>
       </SecondContainer>
     </Container>
+    <Footer />
     </>
   );
 }

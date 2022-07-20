@@ -1,5 +1,4 @@
 import React from "react";
-// import "./signup-card.css";
 import { Field, Form, Formik } from "formik";
 import Button from "../component/Button/Button";
 import { useAuth } from "../context/auth-context";
@@ -7,7 +6,6 @@ import styled from "@emotion/styled";
 import { colors } from "../styles/colors";
 import { shadows } from '../styles/shadows'
 import { typography } from "../styles/typography";
-
 
 
 const FormContainer = styled.div`
