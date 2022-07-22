@@ -85,7 +85,7 @@ const Login= () =>{
         <h5>Login</h5>
           <Formik
             initialValues={{
-              email: 'alex',
+              email: 'pedro',
               password: '123',
             }}
 
