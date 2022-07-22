@@ -1,5 +1,4 @@
 import React from "react";
-import "./login.css";
 import { Field, Form, Formik } from "formik";
 import { RiUserReceivedLine } from "react-icons/ri";
 import Button from "../component/Button/Button";
