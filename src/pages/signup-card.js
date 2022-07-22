@@ -70,9 +70,6 @@ const SignupCard = () =>{
             }}
 
 
-
-
-
             validate={(values) => {
               const errors = {};
 
@@ -80,11 +77,11 @@ const SignupCard = () =>{
               const regexSentences = {
                 name: /([a-zA-Z0-9_\s]+)/,
                 email: /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/,
-                phone: /9(0[1-2]|1[\d]|3[\d]|2[0-1])[\d]{3}[\d]{3}/,
+
+                phone: /^[9]\d{8}$/,
                 password: /^(?=.*\d)[A-Za-z\d]{6,}$/,
                 password_confirmation: /^(?=.*\d)[A-Za-z\d]{6,}$/,
               }
-
 // !!!! --->>> STATIC, no es necesario cambiar, verificarRegex es una funcion <<<---
               function verificarObjectRegex(objeto){
                 objeto.map(texto=>{
@@ -94,9 +91,7 @@ const SignupCard = () =>{
               }
 // !!!! --->>> STATIC, no es necesario cambiar (solo usa las keys del objeto Values, osea los campos) <<<---
               verificarObjectRegex(Object.keys(values))
-
 // !!!! --->>> si se necesita se agrega mas Info al mensaje de error <<<---
-
               function addInfoError(variable,message){
               if (errors[variable]){
                 errors[variable]=errors[variable]+message
@@ -106,12 +101,8 @@ const SignupCard = () =>{
               addInfoError("phone", ", They are 9 numbers")
               addInfoError("password", ", at least 6 numbers")
 
-
-
               return errors;
             }}
-
-
 
 
 
@@ -131,44 +122,46 @@ const SignupCard = () =>{
         }) => (
 
             <Form>
-            <div>
-              <label htmlFor="name">Name</label>
-              <Field type="text" id="name" name="name" placeholder="John Doe"/>
-              {errors.name && touched.name && 
-            <p style={{color:"red"}}>{errors.name}</p>}
-            </div>
+              <Title>Create your account</Title>
+              <div>
+                <label htmlFor="name">Name</label>
+                <Field type="text" id="name" name="name" placeholder="John Doe"/>
+                {errors.name && touched.name && 
+                <p style={{color:"red"}}>{errors.name}</p>}
+              </div>
 
             <div>
               <label htmlFor="email"> Email</label>
               <Field type="email" id="email" name="email" placeholder="user@mail.com" />
               {errors.email && touched.email && 
-            <p style={{color:"red"}}>{errors.email}</p>}
+
+              <p style={{color:"red"}}>{errors.email}</p>}
             </div>
             <div>
-              <label htmlFor="phone"> Phone</label>
-              <Field type="number" id="phone" name="phone" placeholder="999-999-999" />
+              <label htmlFor="phone"> Cellphone</label>
+              <Field type="number" id="phone" name="phone" placeholder="987654321" />
               {errors.phone && touched.phone && 
-            <p style={{color:"red"}}>{errors.phone}</p>}
+              <p style={{color:"red"}}>{errors.phone}</p>}
+
             </div>
             <div>
               <label htmlFor="password"> Password</label>
               <Field type="password" id="password" name="password" placeholder="******" />
               {errors.password && touched.password && 
-            <p style={{color:"red"}}>{errors.password}</p>}
+
+              <p style={{color:"red"}}>{errors.password}</p>}
+
             </div>
             <div>
               <label htmlFor="password_confirmation"> Password Confirmation</label>
               <Field type="password" id="password_confirmation" name="password_confirmation" placeholder="*******" />
 
-
               { touched['password_confirmation'] && values['password'] != values['password_confirmation'] 
-              && 
-            <p style={{color:"red"}}>Password confirmation is not the same as the original</p>}
-
+              && <p style={{color:"red"}}>Password confirmation is not the same as the original</p>}
             </div>
             <Button type="submit" color={'primary'}>Create Account</Button>
           </Form>
-        )}
+                  )}
         </Formik>
       </FormContainer>
     </>
