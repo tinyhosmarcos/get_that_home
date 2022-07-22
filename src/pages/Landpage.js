@@ -92,6 +92,7 @@ const Landpage = () => {
       height: auto;
     }
     & .BackgroundContainer {
+      margin-top: 15px;
       & svg {
         width: 100vw;
         height: 80vh;

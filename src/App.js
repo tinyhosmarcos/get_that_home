@@ -11,6 +11,7 @@ import SignupCard from './pages/signup-card';
 function App() {
 
   return (
+  
     <Routes>
       <Route path="/" element={<Landpage />} />
       <Route path="/login" element={<Login />} />
@@ -19,6 +20,7 @@ function App() {
       <Route path="/property/new" element={<PropertyRent />} />
       <Route path="/property/:id" element={<PropertyPage />} />
     </Routes>
+
   )
 }
 

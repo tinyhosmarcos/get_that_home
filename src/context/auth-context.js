@@ -22,6 +22,7 @@ function AuthProvider(props) {
   function login(credentials){
     return sessions.login(credentials).then( user => {
       setUser(user)
+      localStorage.setItem('user', JSON.stringify(user))
       navigate('/')
     })
   }
@@ -30,8 +31,13 @@ function AuthProvider(props) {
     return sessions.logout().then(() => {
       setUser(null)
       setProfileType({})
+      localStorage.removeItem('user')
       navigate('/')
     })
+  }
+
+  function getUser(){
+    return user || JSON.parse(localStorage.getItem('user'));
   }
 
   function signup(credentials){
@@ -44,7 +50,7 @@ function AuthProvider(props) {
   }
 
   const value = { 
-    user, 
+    user: getUser(), 
     login,
     logout,
     setProfileType,
