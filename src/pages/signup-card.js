@@ -69,12 +69,15 @@ const SignupCard = () =>{
               password_confirmation: '',
             }}
 
+
             validate={(values) => {
               const errors = {};
+
 // !!!! --->>> validaciones regex de las Values <<<---
               const regexSentences = {
                 name: /([a-zA-Z0-9_\s]+)/,
                 email: /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/,
+
                 phone: /^[9]\d{8}$/,
                 password: /^(?=.*\d)[A-Za-z\d]{6,}$/,
                 password_confirmation: /^(?=.*\d)[A-Za-z\d]{6,}$/,
@@ -97,15 +100,9 @@ const SignupCard = () =>{
               addInfoError("name",", at least 1 letter")
               addInfoError("phone", ", They are 9 numbers")
               addInfoError("password", ", at least 6 numbers")
+
               return errors;
             }}
-
-
-
-
-
-
-
 
 
 
@@ -113,10 +110,6 @@ const SignupCard = () =>{
               await signup(values)
             }}
           >
-
-
-
-
 
 {({
           values,
@@ -128,10 +121,6 @@ const SignupCard = () =>{
           setFieldValue,
         }) => (
 
-
-
-
-           
             <Form>
               <Title>Create your account</Title>
               <div>
@@ -140,10 +129,12 @@ const SignupCard = () =>{
                 {errors.name && touched.name && 
                 <p style={{color:"red"}}>{errors.name}</p>}
               </div>
+
             <div>
               <label htmlFor="email"> Email</label>
               <Field type="email" id="email" name="email" placeholder="user@mail.com" />
               {errors.email && touched.email && 
+
               <p style={{color:"red"}}>{errors.email}</p>}
             </div>
             <div>
@@ -151,16 +142,20 @@ const SignupCard = () =>{
               <Field type="number" id="phone" name="phone" placeholder="987654321" />
               {errors.phone && touched.phone && 
               <p style={{color:"red"}}>{errors.phone}</p>}
+
             </div>
             <div>
               <label htmlFor="password"> Password</label>
               <Field type="password" id="password" name="password" placeholder="******" />
               {errors.password && touched.password && 
+
               <p style={{color:"red"}}>{errors.password}</p>}
+
             </div>
             <div>
               <label htmlFor="password_confirmation"> Password Confirmation</label>
               <Field type="password" id="password_confirmation" name="password_confirmation" placeholder="*******" />
+
               { touched['password_confirmation'] && values['password'] != values['password_confirmation'] 
               && <p style={{color:"red"}}>Password confirmation is not the same as the original</p>}
             </div>
@@ -170,7 +165,6 @@ const SignupCard = () =>{
         </Formik>
       </FormContainer>
     </>
-
   );
 
 }
