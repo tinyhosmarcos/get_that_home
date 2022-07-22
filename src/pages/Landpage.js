@@ -12,8 +12,10 @@ import { RiGithubFill, RiLinkedinBoxLine, RiReactjsLine } from "react-icons/ri";
 import { DiRuby } from "react-icons/di";
 import member1  from '../styles/logo/member1.png';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/auth-context'
 
 const Landpage = () => {
+  const { properties } = useAuth();
   const navigate = useNavigate();
 
   const FormWrapper = ({ className, ...props }) => (
@@ -230,6 +232,18 @@ const Landpage = () => {
     }
   `
 
+  function randomWithNoRepeats(array) {
+    var copy = array.slice(0);
+    return function() {
+      if (copy.length < 1) { copy = array.slice(0); }
+      var index = Math.floor(Math.random() * copy.length);
+      var item = copy[index];
+      copy.splice(index, 1);
+      return item
+    }
+  }
+
+  let chooser = randomWithNoRepeats(properties);
   return (
     <HomePageContainer>
       <Menu/>
@@ -291,9 +305,9 @@ const Landpage = () => {
             <h4>Homes for rent at the best prices</h4>
           </div>
           <div className='propertyCardContainer'>
-            <PropertyCard/>
-            <PropertyCard/>
-            <PropertyCard/>
+            <PropertyCard data={chooser()}/>
+            <PropertyCard data={chooser()}/>
+            <PropertyCard data={chooser()}/>
           </div>
         </Section2Wrapper>
       </Section2>
