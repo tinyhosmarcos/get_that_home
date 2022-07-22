@@ -158,8 +158,14 @@ function FormContainer ({children, handleClick, ...props}){
 
           // !!!! --->>> validaciones regex de las Values <<<---
           const regexSentences = {
-            email: /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/,
-            password: /^(?=.*\d)[A-Za-z\d]{6,}$/,
+            address: /^(.{10,100})/,
+            monthlyrent: /([0-9]{3}|[0-9]{6})/,
+            maintanance: /([0-9]{2}|[0-9]{3})/,
+            appartment: /(true|false|"")/,
+            house: /(true|false|"")/,
+            area: /([0-9]{2}|[0-9]{5})/,
+            pets: /(true|false|"")/,
+            textarea: /^(.{10,200})/, 
           }
 
           // !!!! --->>> STATIC, no es necesario cambiar, verificarRegex es una funcion <<<---
@@ -178,7 +184,15 @@ function FormContainer ({children, handleClick, ...props}){
               errors[variable]=errors[variable]+message
               }
             }
-            addInfoError("password", ", at least 6 numbers")
+            addInfoError("address",", They are between 10 and 100 letters")
+            addInfoError("monthlyrent", ", They are 3 numbers")
+            addInfoError("maintanance", ", They are between 2 and 3 numbers")
+            addInfoError("appartment",", true or false")
+            addInfoError("house", ", true or false")
+            addInfoError("area", ", between 3 and 5 numbers")
+            addInfoError("pets",", true or false")
+            addInfoError("textarea",", They are between 10 and 200 letters")
+            
           return errors;
         }}
 
@@ -209,28 +223,36 @@ function FormContainer ({children, handleClick, ...props}){
               name="address" 
               placeholder="start typing to autocomplete"
             />
+            {errors.address && touched.address && 
+            <p style={{color:"red"}}>{errors.address}</p>}
             <Label htmlFor="rent">Monthly Rent</Label>
             <Field
               className="currency" 
               name="monthlyrent"
               id= "monthlyrent" 
               type="number" 
-              min="0.01" 
-              step="0.01" 
-              max="20000" 
+              min="100" 
+              step="10" 
+              max="999999" 
               placeholder="2000" 
             />
+            {errors.monthlyrent && touched.monthlyrent && 
+            <p style={{color:"red"}}>{errors.monthlyrent}</p>}
+
             <Label htmlFor="maintanance">Maintanance</Label>
             <Field 
               className="currency"
               name ="maintanance" 
               id ="maintanance"  
               type="number" 
-              min="0.01" 
-              step="0.01" 
-              max="2500" 
-              placeholder="2000"  
+              min="10" 
+              step="10" 
+              max="999" 
+              placeholder="90"  
             />
+           {errors.maintanance && touched.maintanance && 
+            <p style={{color:"red"}}>{errors.maintanance}</p>}
+
           </div>
           
 
@@ -243,6 +265,8 @@ function FormContainer ({children, handleClick, ...props}){
                   name="apparment" 
                 />
                 <Label for="appartment"> Appartment</Label>
+                {/* {errors.apparment && touched.apparment && 
+            <p style={{color:"red"}}>{errors.apparment}</p>} */}
               </CheckboxInLineField>
               <CheckboxInLineField>
                 <Field 
@@ -251,6 +275,8 @@ function FormContainer ({children, handleClick, ...props}){
                   name="house" 
                 />
                 <Label for="appartment"> House</Label>
+              {/* {errors.house && touched.house && 
+            <p style={{color:"red"}}>{errors.house}</p>} */}
               </CheckboxInLineField>
             </CheckboxesContainer>
           <RoomsAndAreaContainer>
@@ -258,7 +284,7 @@ function FormContainer ({children, handleClick, ...props}){
             <div>
                <Field name="Bedrooms">
                 {({ field }) => (
-                  <select {...field}>
+                  <select  required {...field}>
                     <option value="" disabled selected hidden>select...</option>
                       {[1,2,3,4,5,6].map(i => 
                       <option key={i} value={i}>{i}</option>
@@ -266,11 +292,12 @@ function FormContainer ({children, handleClick, ...props}){
                   </select>
              )}
              </Field>
+
             </div>
             <div>
               <Field name="Bathroom">
                 {({ field }) => (
-                  <select {...field}>
+                  <select required {...field}>
                     <option value="" disabled selected hidden>select...</option>
                     {[1,2,3,4,5,6].map(i => 
                     <option key={i} value={i}>{i}</option>
@@ -286,11 +313,14 @@ function FormContainer ({children, handleClick, ...props}){
                 name="area"
                 id= "area"
                 type="number" 
-                min="0.01" 
-                step="0.01" 
-                max="20000" 
-                placeholder="##" 
+                min="100"
+                step="25" 
+                max="99999" 
+                placeholder="100" 
               />
+            {errors.area && touched.area && 
+            <p style={{color:"red"}}>{errors.area}</p>}
+
             </div>
           </RoomsAndAreaContainer>
 
@@ -315,6 +345,9 @@ function FormContainer ({children, handleClick, ...props}){
               id="textarea" 
               placeholder="My appartment is great because..."
             />
+            {errors.textarea && touched.textarea && 
+            <p style={{color:"red"}}>{errors.textarea}</p>}
+            
               <p>Renters will read this first, so highlight any features or important information the apartment has.</p>
           </div>
           <PhotosContainer>            
