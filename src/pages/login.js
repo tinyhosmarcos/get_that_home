@@ -110,8 +110,12 @@ const Login= () =>{
               verificarObjectRegex(Object.keys(values))
 
               // !!!! --->>> si se necesita se agrega mas Info al mensaje de error <<<---
-              errors.password=errors.password+", at least 6 numbers"
-              
+              function addInfoError(variable,message){
+                if (errors[variable]){
+                  errors[variable]=errors[variable]+message
+                  }
+                }
+                addInfoError("password", ", at least 6 numbers")
               return errors;
             }}
 
