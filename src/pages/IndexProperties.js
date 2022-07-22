@@ -1,5 +1,4 @@
 import styled from '@emotion/styled'
-import userEvent from '@testing-library/user-event'
 import React from 'react'
 import PropertyCard from '../component/Card/PropertyCard'
 import Footer from '../component/Footer/Footer'

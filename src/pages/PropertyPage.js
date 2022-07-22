@@ -3,7 +3,7 @@ import React from 'react'
 import { useParams } from 'react-router-dom';
 import Menu from '../component/Menu/Menu';
 import { useAuth } from '../context/auth-context'
-import { RiMoneyDollarCircleLine, RiHeartLine } from "react-icons/ri";
+import { RiMoneyDollarCircleLine, RiHeartLine, RiArrowRightSLine, RiArrowLeftSLine} from "react-icons/ri";
 import { colors } from '../styles/colors';
 import { typography } from '../styles/typography';
 import { BiBed, BiBath, BiArea } from "react-icons/bi";
@@ -15,6 +15,7 @@ import PropertyContact from '../component/Property-contact/PropertyContact';
 const PropertyPage = () => {
   const { properties } = useAuth();
   const { id } = useParams();
+  const [count, setCount] = React.useState(0);
 
   const PropertyPage = styled.div`
     padding: 0 120px;
@@ -120,11 +121,40 @@ const PropertyPage = () => {
       color: ${colors.gray['medium']}
     }
   `
+  const ArrowImages = styled.div`
+    display: flex;
+    align-items: center;
+    & svg {
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+    }
+  `
 
   const [property] = properties.filter(property => property.id === +id);
   const location = property && ("https://maps.google.com/maps?q=" + (property.latitud).toString() + "," + (property.longitud).toString() + "&hl=es&z=16&amp&output=embed")
   const addressLines = (property && property.address && property.address.split(', ')) || []
   const [ direction, ...district ] = addressLines;
+  let image = property && property.image_url[count];
+  function changeCount(key){
+    switch (key) {
+      case 'right':
+        setCount(count => count === 0 ? property.image_url.length - 1 : count + 1);
+        break;
+      case 'left':
+        setCount(count => count === 0 ? property.image_url.length - 1 : count - 1);
+        break;
+      default:
+        break;
+    }
+    
+    console.log(count)
+  }
+
+  React.useEffect(() => {
+    image = property && property.image_url[count];
+  },[count])
+
   return (
     <div>
       <Menu />
@@ -132,10 +162,16 @@ const PropertyPage = () => {
         <PropertyPage>
           <PropertyContainer>
             <PropertyWrapper>
-              <div style={{width: '100%', display: 'flex', justifyContent: 'space-around'}}>
+              <div style={{width: '100%', display: 'flex', justifyContent: 'space-around', cursor: 'pointer'}}>
+                <ArrowImages>
+                  <RiArrowLeftSLine onClick={() => changeCount('right')} />
+                </ArrowImages>
                 <PropertyImage>
-                  <img src="https://www.gannett-cdn.com/-mm-/05b227ad5b8ad4e9dcb53af4f31d7fbdb7fa901b/c=0-64-2119-1259/local/-/media/USATODAY/USATODAY/2014/08/13/1407953244000-177513283.jpg" alt="hotel room" />
+                  <img src={image} alt="hotel room" />
                 </PropertyImage>
+                <ArrowImages>
+                  <RiArrowRightSLine onClick={() => changeCount('left')} />
+                </ArrowImages>
               </div>
               <div>
                 <PropertyHeading>

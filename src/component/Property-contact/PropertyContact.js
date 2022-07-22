@@ -100,10 +100,10 @@ const PropertyContact = ({property}) => {
             )}
           </>
         ):(
-          <>
+          <div>
             <ContactDescription>Log in or Join to contact the advertiser</ContactDescription>
             <Button icon={<RiUserReceived2Line />} color={'primary'} size={'small'}>LOGIN</Button>
-          </>
+          </div>
         )}
   </ContactContainer>
   )
