@@ -7,8 +7,11 @@ import { typography } from '../../styles/typography';
 import { shadows } from '../../styles/shadows';
 import { colors } from '../../styles/colors';
 import { FaEdit } from "react-icons/fa";
+import { useNavigate } from 'react-router-dom';
 
-const PropertyCard = ({...props}) => {
+const PropertyCard = ({data, ...props}) => {
+  const navigate = useNavigate();
+
   const CardContainer = styled.div`
     position: relative;
     width: 300px;
@@ -109,7 +112,7 @@ const PropertyCard = ({...props}) => {
     position: absolute;
     right: 0px;
     border-top-right-radius: 8px;
-    width: 110px;
+    width: 123px;
     height: 28px;
     padding: 4px 8px;
     display: flex;
@@ -127,17 +130,11 @@ const PropertyCard = ({...props}) => {
       height: 20px;
     }
   `
-  const data = {
-    operation: true,
-    type: true,
-    pet: false,
-    favorite: false,
-  }
 
   return (
-    <CardContainer {...props}>
-      <CardChip props={data}>
-        { data.operation ? (
+    <CardContainer onClick={() => navigate(`/property/${data.id}`)} {...props}>
+      <CardChip>
+        {data && data.operation_type ? (
           <>
             <RiCoinsLine/>
             <p>For Rental</p>
@@ -152,38 +149,38 @@ const PropertyCard = ({...props}) => {
         
       </CardChip>
       <ImageContainer>
-        <img src="https://www.gannett-cdn.com/-mm-/05b227ad5b8ad4e9dcb53af4f31d7fbdb7fa901b/c=0-64-2119-1259/local/-/media/USATODAY/USATODAY/2014/08/13/1407953244000-177513283.jpg" alt="hotel room" />
+        <img src={data && `${data.image_url[0]}`} alt="hotel room" />
       </ImageContainer>
       <CardDetails>
         <CardDetailsHeading>
           <div>
             <RiMoneyDollarCircleLine/>
-            <p>3000</p>
+            <p>{data && data.monthly_price}</p>
           </div>
           <div>
-            {data.type ? <RiBuildingLine/> : <RiHome8Line/> }
+            {data && data.property_type ? <RiHome8Line/> : <RiBuildingLine/>}
             <p>Apartment</p>
           </div>
         </CardDetailsHeading>
         <CardDetailsDescription>
           <div>
-            <p>86872 Jacob Gateway, Durganport, WV 48044</p>
+            <p>{data && data.address}</p>
           </div>
           <div>
             <div>
               <BiBed/>
-              <p>4</p>
+              <p>{data && data.bedrooms_count}</p>
             </div>
             <div>
               <BiBath/>
-              <p>2</p>
+              <p>{data && data.bathrooms_count}</p>
             </div>
             <div>
               <BiArea/>
-              <p>180 m2</p>
+              <p>{data && data.area} m2</p>
             </div>
-            {data.pet ? <div><MdPets/></div> : null }
-            {data.favorite ? <div><RiHeartFill/></div> : null }
+            {data && data.pets_allowed ? <div><MdPets/></div> : null }
+            {/* {data && data.favorite ? <div><RiHeartFill/></div> : null } */}
           </div>
         </CardDetailsDescription>
         {props.isOwner ? (

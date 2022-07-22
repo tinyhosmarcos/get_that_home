@@ -38,7 +38,7 @@ const Menu = () => {
           <ReactLogo onClick={() => navigate('/')} />
         </div>
         <MenuBottons>
-          <Button icon={<RiSearchLine/>} color={'ghost'} size={'small'} >FIND A HOME</Button>
+          <Button handleClick={() => navigate('/properties')} icon={<RiSearchLine/>} color={'ghost'} size={'small'} >FIND A HOME</Button>
           {user ? 
           (
             <>
